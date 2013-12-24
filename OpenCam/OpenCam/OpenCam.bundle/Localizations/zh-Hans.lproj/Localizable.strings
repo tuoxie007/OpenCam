@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  OpenCam
+
+  Created by Jason Hsu on 2013/12/21.
+  Copyright (c) 2013年 Jason Hsu. All rights reserved.
+*/
+
+"Crop"="裁剪";
+"Edit"="编辑";
+"Save & Share"="保存和分享";
+"Sending to Sina Weibo"="正在发送到微博";
+"Copy Image URL"="复制图片地址";
+"Save"="保存";
+"Saved"="已保存";
