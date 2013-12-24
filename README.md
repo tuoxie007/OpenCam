@@ -8,7 +8,7 @@ OpenCam is an easy-to-use opensource camera library with image filters based on 
 Edit Podfile as:
 
 	platform :ios, '7.0'
-	pod 'OpenCam', :head
+	pod 'OpenCam', :path=>'path/to/OpenCam.podspec'
 	pod 'GPUImage', :head
 
 # Manual Usage
