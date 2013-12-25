@@ -8,6 +8,9 @@
 
 #import "OCMPhotosNavBar.h"
 #import "OCMDefinitions.h"
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 70000
+#import <QuartzCore/QuartzCore.h>
+#endif
 
 @implementation OCMPhotosNavBar
 

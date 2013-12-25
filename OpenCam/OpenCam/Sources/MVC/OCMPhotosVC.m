@@ -20,7 +20,7 @@
 @interface OCMPhotosCollectionView : UICollectionView
 
 @property (nonatomic) CGFloat touchBeginY;
-@property (nonatomic) CGFloat startOffsetY;
+@property (nonatomic) CGFloat startOffsetTop;
 
 @end
 
@@ -113,7 +113,7 @@
     self.view.clipsToBounds = NO;
     [self.navigationController setNavigationBarHidden:YES];
     
-    self.collectionView = [[OCMPhotosCollectionView alloc] initWithFrame:self.collectionView.frame collectionViewLayout:self.collectionViewLayout];
+    self.collectionView = [[OCMPhotosCollectionView alloc] initWithFrame:self.collectionView.frame collectionViewLayout:self.collectionView.collectionViewLayout];
     [self.view addSubview:self.collectionView];
     [self.collectionView registerClass:[OCMPhotoCell class] forCellWithReuseIdentifier:OCMPhotoCellIdentifier];
     [self.collectionView registerClass:[OCMPhotosNavBar class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"OCMPhotosNavigationBar"];
@@ -246,7 +246,7 @@
 
 - (void)setHeaderHeight:(CGFloat)height
 {
-    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     layout.headerReferenceSize = ccs(layout.headerReferenceSize.width, height);
     [self.collectionView reloadData];
 }
@@ -393,8 +393,8 @@
     OCMSelectPhotoVC *selectPhotoVC = (OCMSelectPhotoVC *)self.navigationController.parentViewController;
     OCMPhotosCollectionView *collectionView = (OCMPhotosCollectionView *)self.collectionView;
     if (OCMPhotoScrollTop - selectPhotoVC.selectPhotoView.height + moved.CGPointValue.y <= 0) {
-        if (collectionView.startOffsetY == 0) {
-            collectionView.startOffsetY = collectionView.contentOffset.y;
+        if (collectionView.startOffsetTop == 0) {
+            collectionView.startOffsetTop = collectionView.contentOffset.y;
         }
         if (selectPhotoVC.selectPhotoView.top == 0) {
             self.navigationController.view.top = OCMPhotoScrollTop;
@@ -402,14 +402,14 @@
             selectPhotoVC.locked = YES;
         }
         [self setSelectViewTop:OCMPhotoScrollTop - selectPhotoVC.selectPhotoView.height + moved.CGPointValue.y];
-        collectionView.contentOffset = ccp(collectionView.contentOffset.x, collectionView.startOffsetY - moved.CGPointValue.y);
+        collectionView.contentOffset = ccp(collectionView.contentOffset.x, collectionView.startOffsetTop - moved.CGPointValue.y);
     } else if (selectPhotoVC.locked) {
         selectPhotoVC.locked = NO;
         [self setSelectViewTop:0];
         [selectPhotoVC.view setNeedsLayout];
-        collectionView.contentOffset = ccp(collectionView.contentOffset.x, collectionView.startOffsetY - moved.CGPointValue.y + selectPhotoVC.selectPhotoView.height - OCMPhotoScrollTop);
+        collectionView.contentOffset = ccp(collectionView.contentOffset.x, collectionView.startOffsetTop - moved.CGPointValue.y + selectPhotoVC.selectPhotoView.height - OCMPhotoScrollTop);
     } else {
-        collectionView.contentOffset = ccp(collectionView.contentOffset.x, collectionView.startOffsetY - moved.CGPointValue.y + selectPhotoVC.selectPhotoView.height - OCMPhotoScrollTop);
+        collectionView.contentOffset = ccp(collectionView.contentOffset.x, collectionView.startOffsetTop - moved.CGPointValue.y + selectPhotoVC.selectPhotoView.height - OCMPhotoScrollTop);
     }
 }
 
@@ -419,13 +419,13 @@
     OCMPhotosCollectionView *collectionView = (OCMPhotosCollectionView *)self.collectionView;
     if (selectPhotoVC.selectPhotoView.top == 0) { // 已经放下来了
         [selectPhotoVC.selectViewCover removeFromSuperview];
-        collectionView.startOffsetY = 0;
+        collectionView.startOffsetTop = 0;
     } else if (selectPhotoVC.selectPhotoView.top <= OCMPhotoScrollTop - selectPhotoVC.selectPhotoView.height) { // 还在顶上
         if (moved.CGPointValue.y > -5) { // 轻点
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         } else {
-            collectionView.startOffsetY = 0;
+            collectionView.startOffsetTop = 0;
         }
     } else { // 还在半空中
         if (moved.CGPointValue.y > view.lastMoved.y) { // 向下仍
@@ -435,14 +435,14 @@
             } completion:^(BOOL finished) {
                 [selectPhotoVC.selectViewCover removeFromSuperview];
                 [selectPhotoVC.view setNeedsLayout];
-                collectionView.contentOffset = ccp(collectionView.contentOffset.x, collectionView.startOffsetY - moved.CGPointValue.y + selectPhotoVC.selectPhotoView.height - OCMPhotoScrollTop);
-                collectionView.startOffsetY = 0;
+                collectionView.contentOffset = ccp(collectionView.contentOffset.x, collectionView.startOffsetTop - moved.CGPointValue.y + selectPhotoVC.selectPhotoView.height - OCMPhotoScrollTop);
+                collectionView.startOffsetTop = 0;
             }];
         } else { // 向上仍
             [UIView animateWithDuration:.2 animations:^{
                 [self setSelectViewTop:OCMPhotoScrollTop - selectPhotoVC.selectPhotoView.height];
             }];
-            collectionView.startOffsetY = 0;
+            collectionView.startOffsetTop = 0;
         }
     }
 }
@@ -457,7 +457,7 @@
             selectPhotoVC.locked = NO;
             [selectPhotoVC.selectViewCover removeFromSuperview];
             [selectPhotoVC.view setNeedsLayout];
-            collectionView.startOffsetY = 0;
+            collectionView.startOffsetTop = 0;
         } completion:^(BOOL finished) {
             [self photoSelected];
         }];

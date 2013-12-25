@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'OpenCam/Sources/**/*.{h,m}'
   s.framework    = ['ImageIO', 'Foundation', 'CoreGraphics', 'UIKit']
-  s.resources    = 'OpenCam/OpenCam.bundle/**/*.png'
+  s.resources    = 'OpenCam/OpenCam.bundle/**/*.{png,strings}'
   s.requires_arc = true
 end

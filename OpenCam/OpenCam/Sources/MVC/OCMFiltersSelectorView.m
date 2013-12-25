@@ -61,11 +61,15 @@
             button.titleLabel.font = [UIFont boldSystemFontOfSize:Screen4Inch?14:10];
             
             CGSize titleSize;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
             if ([title respondsToSelector:@selector(sizeWithAttributes:)]) {
                 titleSize = [title sizeWithAttributes:@{NSFontAttributeName: button.titleLabel.font}];
             } else {
                 titleSize = [title sizeWithFont:button.titleLabel.font];
             }
+#else
+            titleSize = [title sizeWithFont:button.titleLabel.font];
+#endif
             CGSize imageSize = [button imageForState:UIControlStateNormal].size;
             if (title.length) {
                 button.imageEdgeInsets = edi(0, 0, titleSize.height+14, -titleSize.width);
@@ -114,7 +118,16 @@
 
 - (void)adjustEdgeInsetsForButton:(UIButton *)button forState:(UIControlState)state
 {
-    CGSize titleSize = [[button titleForState:state] sizeWithAttributes:@{NSFontAttributeName:button.titleLabel.font}];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+    CGSize titleSize;
+    if ([[button titleForState:state] respondsToSelector:@selector(sizeWithAttributes:)]) {
+        titleSize = [[button titleForState:state] sizeWithAttributes:@{NSFontAttributeName:button.titleLabel.font}];
+    } else {
+        titleSize = [[button titleForState:state] sizeWithFont:button.titleLabel.font];
+    }
+#else
+    CGSize titleSize = [[button titleForState:state] sizeWithFont:button.titleLabel.font];
+#endif
     CGSize imageSize = [button imageForState:state].size;
     if ([button titleForState:state].length) {
         button.imageEdgeInsets = edi(0, 0, titleSize.height+14, -titleSize.width);
