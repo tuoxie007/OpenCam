@@ -649,4 +649,9 @@
     return nil;
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 @end

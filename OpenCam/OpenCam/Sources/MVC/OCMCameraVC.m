@@ -31,6 +31,15 @@
 
 @implementation OCMCameraVC
 
+- (void)dealloc
+{
+    AVCaptureDevice *device = self.camera.inputCamera;
+    [device removeObserver:self forKeyPath:@"adjustingFocus"];
+    [device removeObserver:self forKeyPath:@"adjustingExposure"];
+    [device removeObserver:self forKeyPath:@"adjustingWhiteBalance"];
+    [self.camera stopCameraCapture];
+}
+
 - (void)viewDidLoad
 {
     self.view.backgroundColor = [UIColor blackColor];
@@ -284,7 +293,6 @@
 
 - (void)close
 {
-    [self.camera stopCameraCapture];
     [self dismissViewControllerAnimated:YES completion:nil];
     OCMCameraViewController *nav = (OCMCameraViewController *)self.navigationController;
     nav.photo = nil;

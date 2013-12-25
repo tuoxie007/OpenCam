@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol OCMCameraViewControllerProtocal;
+@protocol OCMCameraViewControllerDelegate;
 
 @interface OCMCameraViewController : UINavigationController
 
 @property (nonatomic, strong) UIImage *photo;
 @property (nonatomic) CGFloat maxWidth, maxHeight;
-@property (nonatomic, weak) id<OCMCameraViewControllerProtocal, UINavigationControllerDelegate> delegate;
+@property (nonatomic, weak) id<OCMCameraViewControllerDelegate, UINavigationControllerDelegate> delegate;
 
 @end
 
 
-@protocol OCMCameraViewControllerProtocal <NSObject>
+@protocol OCMCameraViewControllerDelegate <NSObject>
 
 - (void)cameraViewControllerDidFinish:(OCMCameraViewController *)cameraViewController;
 

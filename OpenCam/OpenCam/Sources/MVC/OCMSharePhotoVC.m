@@ -155,4 +155,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 @end
