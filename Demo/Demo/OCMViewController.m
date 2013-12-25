@@ -34,7 +34,7 @@
     [self.view addSubview:preview];
     preview.size = ccs(self.view.width, self.view.width);
     preview.center = self.view.center;
-    preview.contentMode = UIViewContentModeScaleAspectFill;
+    preview.contentMode = UIViewContentModeScaleAspectFit;
     
     preview.top = (self.view.height - preview.height - cameraButton.height - 30) / 2;
     cameraButton.bottom = self.view.height - preview.top;
