@@ -9,7 +9,7 @@
 #import "OCMViewController.h"
 #import <OpenCam/OpenCam.h>
 
-@interface OCMViewController () <OCMCameraViewControllerProtocal, UINavigationControllerDelegate>
+@interface OCMViewController () <OCMCameraViewControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, weak) UIImageView *preview;
 

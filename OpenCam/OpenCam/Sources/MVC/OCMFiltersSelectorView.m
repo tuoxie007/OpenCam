@@ -60,7 +60,12 @@
             button.frame = ccr(i*Size, 0, Size, Size);
             button.titleLabel.font = [UIFont boldSystemFontOfSize:Screen4Inch?14:10];
             
-            CGSize titleSize = [title sizeWithAttributes:@{NSFontAttributeName: button.titleLabel.font}];
+            CGSize titleSize;
+            if ([title respondsToSelector:@selector(sizeWithAttributes:)]) {
+                titleSize = [title sizeWithAttributes:@{NSFontAttributeName: button.titleLabel.font}];
+            } else {
+                titleSize = [title sizeWithFont:button.titleLabel.font];
+            }
             CGSize imageSize = [button imageForState:UIControlStateNormal].size;
             if (title.length) {
                 button.imageEdgeInsets = edi(0, 0, titleSize.height+14, -titleSize.width);
