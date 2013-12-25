@@ -1,3 +1,3 @@
 platform :ios, '6.0'
-pod 'OpenCam', :path=>'../OpenCam/OpenCam.podspec'
+pod 'OpenCam', :path=>'/Users/jason/mywork/OpenCam-Pod/OpenCam/OpenCam.podspec'
 pod 'GPUImage', :head

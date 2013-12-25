@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'OpenCam'
-  s.version  = '0.1'
-  s.platform = :ios, '7.0'
+  s.version  = '0.2'
+  s.platform = :ios, '6.0'
   s.license  = 'MIT'
   s.summary  = 'An iOS camera library with image filters.'
   s.homepage = 'https://github.com/tuoxie007/OpenCam'
