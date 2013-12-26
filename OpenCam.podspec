@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'OpenCam/OpenCam/Sources/**/*.{h,m}'
   s.framework    = ['ImageIO', 'Foundation', 'CoreGraphics', 'UIKit']
-  s.resources    = 'OpenCam/OpenCam/OpenCam.bundle/**/*.{png,strings}'
+  s.resources    = 'OpenCam/OpenCam/OpenCam.bundle'
   s.requires_arc = true
   s.dependency 'GPUImage'
 end

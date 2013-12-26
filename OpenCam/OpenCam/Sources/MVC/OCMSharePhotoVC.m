@@ -42,6 +42,7 @@
     [self.view addSubview:titleLabel];
     self.titleLabel = titleLabel;
     titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.text = _(@"Save & Share");
     [titleLabel sizeToFit];

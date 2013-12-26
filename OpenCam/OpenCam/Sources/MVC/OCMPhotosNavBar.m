@@ -32,6 +32,7 @@
         [self addSubview:titleLabel];
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
         [titleLabel sizeToFit];
         

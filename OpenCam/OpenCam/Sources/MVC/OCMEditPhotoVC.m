@@ -82,6 +82,7 @@
     self.titleLabel = titleLabel;
     titleLabel.font = [UIFont boldSystemFontOfSize:20];
     titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.text = _(@"Edit");
     [titleLabel sizeToFit];
     
