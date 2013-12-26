@@ -16,7 +16,6 @@
 		96FA0772186982F5004771D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96FA0770186982F5004771D0 /* InfoPlist.strings */; };
 		96FA0774186982F5004771D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FA0773186982F5004771D0 /* main.m */; };
 		96FA0778186982F5004771D0 /* OCMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FA0777186982F5004771D0 /* OCMAppDelegate.m */; };
-		96FA077B186982F5004771D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FA0779186982F5004771D0 /* Main.storyboard */; };
 		96FA077E186982F5004771D0 /* OCMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FA077D186982F5004771D0 /* OCMViewController.m */; };
 		96FA0780186982F5004771D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FA077F186982F5004771D0 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -25,6 +24,8 @@
 		3ED04AC2BE0E49C784B3B649 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9687DF6A186C344000431DA2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9687DF6C186C345B00431DA2 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		9687DF6F186C402A00431DA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		9687DF70186C402E00431DA2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		96FA0764186982F5004771D0 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FA0767186982F5004771D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		96FA0769186982F5004771D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -35,7 +36,6 @@
 		96FA0775186982F5004771D0 /* Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Prefix.pch"; sourceTree = "<group>"; };
 		96FA0776186982F5004771D0 /* OCMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMAppDelegate.h; sourceTree = "<group>"; };
 		96FA0777186982F5004771D0 /* OCMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCMAppDelegate.m; sourceTree = "<group>"; };
-		96FA077A186982F5004771D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96FA077C186982F5004771D0 /* OCMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMViewController.h; sourceTree = "<group>"; };
 		96FA077D186982F5004771D0 /* OCMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCMViewController.m; sourceTree = "<group>"; };
 		96FA077F186982F5004771D0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -95,7 +95,6 @@
 			children = (
 				96FA0776186982F5004771D0 /* OCMAppDelegate.h */,
 				96FA0777186982F5004771D0 /* OCMAppDelegate.m */,
-				96FA0779186982F5004771D0 /* Main.storyboard */,
 				96FA077C186982F5004771D0 /* OCMViewController.h */,
 				96FA077D186982F5004771D0 /* OCMViewController.m */,
 				96FA077F186982F5004771D0 /* Images.xcassets */,
@@ -154,6 +153,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 96FA075B186982F5004771D0;
 			productRefGroup = 96FA0765186982F5004771D0 /* Products */;
@@ -172,7 +173,6 @@
 			files = (
 				96FA0780186982F5004771D0 /* Images.xcassets in Resources */,
 				96FA0772186982F5004771D0 /* InfoPlist.strings in Resources */,
-				96FA077B186982F5004771D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,16 +229,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				96FA0771186982F5004771D0 /* en */,
+				9687DF6F186C402A00431DA2 /* zh-Hans */,
+				9687DF70186C402E00431DA2 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		96FA0779186982F5004771D0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				96FA077A186982F5004771D0 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
