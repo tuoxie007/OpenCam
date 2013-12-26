@@ -59,7 +59,7 @@
     [selectPhotoView addSubview:backButton];
     self.backButton = backButton;
     [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [backButton setImage:[UIImage imageNamed:@"CameraSmall"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageWithName:@"CameraSmall"] forState:UIControlStateNormal];
     [backButton sizeToFit];
     
     UILabel *titleLabel = [[UILabel alloc] init];
@@ -68,14 +68,14 @@
     titleLabel.font = [UIFont boldSystemFontOfSize:20];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.backgroundColor = [UIColor clearColor];
-    titleLabel.text = _(@"Crop");
+    titleLabel.text = LocalStr(@"Crop");
     [titleLabel sizeToFit];
     
     UIButton *nextButton = [[UIButton alloc] init];
     [selectPhotoView addSubview:nextButton];
     self.nextButton = nextButton;
     [nextButton addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
-    [nextButton setImage:[UIImage imageNamed:@"ArrowRight"] forState:UIControlStateNormal];
+    [nextButton setImage:[UIImage imageWithName:@"ArrowRight"] forState:UIControlStateNormal];
     [nextButton sizeToFit];
     
     UIImageView *preview = [[UIImageView alloc] init];

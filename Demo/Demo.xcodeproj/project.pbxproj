@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		23DCD2FC0B1D403C9A7B89FD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A163BE4FA94BF191346961 /* libPods.a */; };
+		9687DF6B186C344000431DA2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9687DF6A186C344000431DA2 /* CoreImage.framework */; };
+		9687DF6D186C345B00431DA2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9687DF6C186C345B00431DA2 /* AssetsLibrary.framework */; };
 		96FA0768186982F5004771D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FA0767186982F5004771D0 /* Foundation.framework */; };
 		96FA076A186982F5004771D0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FA0769186982F5004771D0 /* CoreGraphics.framework */; };
 		96FA076C186982F5004771D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FA076B186982F5004771D0 /* UIKit.framework */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		3ED04AC2BE0E49C784B3B649 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		9687DF6A186C344000431DA2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		9687DF6C186C345B00431DA2 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		96FA0764186982F5004771D0 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FA0767186982F5004771D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		96FA0769186982F5004771D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -35,7 +39,6 @@
 		96FA077C186982F5004771D0 /* OCMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMViewController.h; sourceTree = "<group>"; };
 		96FA077D186982F5004771D0 /* OCMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCMViewController.m; sourceTree = "<group>"; };
 		96FA077F186982F5004771D0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		96FA0786186982F5004771D0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D8A163BE4FA94BF191346961 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -44,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9687DF6D186C345B00431DA2 /* AssetsLibrary.framework in Frameworks */,
+				9687DF6B186C344000431DA2 /* CoreImage.framework in Frameworks */,
 				96FA076A186982F5004771D0 /* CoreGraphics.framework in Frameworks */,
 				96FA076C186982F5004771D0 /* UIKit.framework in Frameworks */,
 				96FA0768186982F5004771D0 /* Foundation.framework in Frameworks */,
@@ -75,10 +80,11 @@
 		96FA0766186982F5004771D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9687DF6C186C345B00431DA2 /* AssetsLibrary.framework */,
+				9687DF6A186C344000431DA2 /* CoreImage.framework */,
 				96FA0767186982F5004771D0 /* Foundation.framework */,
 				96FA0769186982F5004771D0 /* CoreGraphics.framework */,
 				96FA076B186982F5004771D0 /* UIKit.framework */,
-				96FA0786186982F5004771D0 /* XCTest.framework */,
 				D8A163BE4FA94BF191346961 /* libPods.a */,
 			);
 			name = Frameworks;

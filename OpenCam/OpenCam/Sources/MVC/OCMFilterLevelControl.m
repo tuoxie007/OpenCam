@@ -19,23 +19,23 @@
         UIButton *closeButton = [[UIButton alloc] init];
         self.closeButton = closeButton;
         [self addSubview:closeButton];
-        [closeButton setImage:[UIImage imageNamed:@"Cross"] forState:UIControlStateNormal];
+        [closeButton setImage:[UIImage imageWithName:@"Cross"] forState:UIControlStateNormal];
         [closeButton sizeToFit];
         
         UIButton *applyButton = [[UIButton alloc] init];
         self.applyButton = applyButton;
         [self addSubview:applyButton];
-        [applyButton setImage:[UIImage imageNamed:@"Tick"] forState:UIControlStateNormal];
+        [applyButton setImage:[UIImage imageWithName:@"Tick"] forState:UIControlStateNormal];
         [applyButton sizeToFit];
         
         UISlider *levelSlider = [[UISlider alloc] init];
         self.levelSlider = levelSlider;
         [self addSubview:levelSlider];
-        [levelSlider setMinimumTrackImage:[[UIImage imageNamed:@"SliderMinimumTrack"] stretchableImageFromCenter]
+        [levelSlider setMinimumTrackImage:[[UIImage imageWithName:@"SliderMinimumTrack"] stretchableImageFromCenter]
                                  forState:UIControlStateNormal];
-        [levelSlider setMaximumTrackImage:[[UIImage imageNamed:@"SliderMaximumTrack"] stretchableImageFromCenter]
+        [levelSlider setMaximumTrackImage:[[UIImage imageWithName:@"SliderMaximumTrack"] stretchableImageFromCenter]
                                  forState:UIControlStateNormal];
-        [levelSlider setThumbImage:[UIImage imageNamed:@"SliderThumb"] forState:UIControlStateNormal];
+        [levelSlider setThumbImage:[UIImage imageWithName:@"SliderThumb"] forState:UIControlStateNormal];
         [levelSlider sizeToFit];
         levelSlider.value = 1;
     }

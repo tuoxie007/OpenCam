@@ -8,6 +8,7 @@
 
 #import "OCMFiltersSelectorView.h"
 #import "OCMDefinitions.h"
+#import "UIImage+OCMAdditions.h"
 
 #define Size (Screen4Inch ? 92 : 55)
 
@@ -27,7 +28,7 @@
         for (int i=0; i<buttonMetas.count; i++) {
             NSDictionary *buttonMeta = buttonMetas[i];
             UIColor *backgroundColor = buttonMeta[OCMMetaKeyBackgroundColor];
-            NSString *title = _(buttonMeta[OCMMetaKeyTitle]);
+            NSString *title = LocalStr(buttonMeta[OCMMetaKeyTitle]);
             if ([buttonMeta[OCMMetaKeyType] hasSuffix:@"lookup"]) {
                 title = nil;
             }
@@ -43,14 +44,14 @@
                 [button setTitle:title forState:UIControlStateNormal];
             }
             if (iconName) {
-                UIImage *icon = [UIImage imageNamed:iconName];
+                UIImage *icon = [UIImage imageWithName:iconName];
                 if (!Screen4Inch) {
                     icon = [UIImage imageWithCGImage:icon.CGImage scale:icon.scale*92/55 orientation:UIImageOrientationUp];
                 }
                 [button setImage:icon forState:UIControlStateNormal];
             }
             if (iconNameSelected) {
-                UIImage *icon = [UIImage imageNamed:iconNameSelected];
+                UIImage *icon = [UIImage imageWithName:iconNameSelected];
                 if (!Screen4Inch) {
                     icon = [UIImage imageWithCGImage:icon.CGImage scale:icon.scale*sqrtf(92/55) orientation:UIImageOrientationUp];
                 }

@@ -9,6 +9,7 @@
 #import "OCMLookupFilter.h"
 #import "OCMGPUImageLookupFilter.h"
 #import "OCMGPUImageWBLookupFilter.h"
+#import "UIImage+OCMAdditions.h"
 
 @implementation OCMLookupFilter
 
@@ -19,7 +20,7 @@
 		return nil;
     }
     
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"lookup_%@", [name lowercaseString]]];
+    UIImage *image = [UIImage imageWithName:[NSString stringWithFormat:@"lookup_%@", [name lowercaseString]]];
     
     lookupImageSource = [[GPUImagePicture alloc] initWithImage:image];
     if (isWhiteAndBlack) {

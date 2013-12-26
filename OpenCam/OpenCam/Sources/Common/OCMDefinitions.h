@@ -10,9 +10,10 @@
 #define OpenCam_OCMDefinitions_h
 
 #import "HSUViewFrameHelpers.h"
+#import "OpenCam.h"
 
-#ifndef _
-#define _(s) NSLocalizedString(s, nil)
+#ifndef LocalStr
+#define LocalStr(s) [OpenCam localizedString:s]
 #endif
 
 #ifndef rgb

@@ -8,6 +8,7 @@
 
 #import "OCMAlbumCell.h"
 #import "OCMDefinitions.h"
+#import "UIImage+OCMAdditions.h"
 
 @implementation OCMAlbumCell
 
@@ -22,7 +23,7 @@
         
         UIButton *accessoryButton = [[UIButton alloc] init];
         self.accessoryView = accessoryButton;
-        [accessoryButton setImage:[UIImage imageNamed:@"ArrowRight"] forState:UIControlStateNormal];
+        [accessoryButton setImage:[UIImage imageWithName:@"ArrowRight"] forState:UIControlStateNormal];
         [accessoryButton sizeToFit];
     }
     return self;

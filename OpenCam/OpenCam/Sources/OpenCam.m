@@ -12,6 +12,14 @@
 
 @implementation OpenCam
 
++ (NSString *)localizedString:(NSString *)key
+{
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"OpenCam" ofType:@"bundle"];
+    NSBundle *bundle = [[NSBundle alloc] initWithPath:bundlePath];
+    NSString *value = [bundle localizedStringForKey:key value:@"" table:nil];
+    return value;
+}
+    
 + (OCMCameraViewController *)cameraViewController
 {
     OCMCameraVC *cameraVC = [[OCMCameraVC alloc] init];

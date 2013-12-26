@@ -208,4 +208,17 @@
     return [self stretchableImageWithLeftCapWidth:self.size.width/2 topCapHeight:self.size.height/2];
 }
 
++ (UIImage *)imageWithName:(NSString *)imageName
+{
+    UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"OpenCam.bundle/%@", imageName]];
+    if (img) {
+        return img;
+    }
+    img = [UIImage imageNamed:[NSString stringWithFormat:@"OpenCam.bundle/icon_%@", imageName]];
+    if (img) {
+        return img;
+    }
+    return [UIImage imageNamed:imageName];
+}
+
 @end

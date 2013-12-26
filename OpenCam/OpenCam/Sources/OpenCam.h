@@ -12,5 +12,6 @@
 @interface OpenCam : NSObject
 
 + (OCMCameraViewController *)cameraViewController;
++ (NSString *)localizedString:(NSString *)key;
 
 @end

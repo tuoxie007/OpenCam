@@ -8,6 +8,7 @@
 
 #import "OCMSharePhotoVC.h"
 #import "OCMDefinitions.h"
+#import "UIImage+OCMAdditions.h"
 
 @interface OCMSharePhotoVC ()
 
@@ -35,7 +36,7 @@
     [self.view addSubview:backButton];
     self.backButton = backButton;
     [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [backButton setImage:[UIImage imageNamed:@"ArrowLeft"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageWithName:@"ArrowLeft"] forState:UIControlStateNormal];
     [backButton sizeToFit];
     
     UILabel *titleLabel = [[UILabel alloc] init];
@@ -44,7 +45,7 @@
     titleLabel.font = [UIFont boldSystemFontOfSize:20];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.text = _(@"Save & Share");
+    titleLabel.text = LocalStr(@"Save & Share");
     [titleLabel sizeToFit];
     
     UIImageView *preview = [[UIImageView alloc] initWithImage:self.photo];
@@ -60,8 +61,8 @@
     UIButton *copyURLButton = [[UIButton alloc] init];
     self.copiURLButton = copyURLButton;
     [self.view addSubview:copyURLButton];
-    [copyURLButton setTitle:_(@"Sending to Sina Weibo") forState:UIControlStateDisabled];
-    [copyURLButton setTitle:_(@"Copy Image URL") forState:UIControlStateNormal];
+    [copyURLButton setTitle:LocalStr(@"Sending to Sina Weibo") forState:UIControlStateDisabled];
+    [copyURLButton setTitle:LocalStr(@"Copy Image URL") forState:UIControlStateNormal];
     [copyURLButton addTarget:self action:@selector(shareButtonTouched) forControlEvents:UIControlEventTouchUpInside];
     copyURLButton.enabled = NO;
     [copyURLButton sizeToFit];
@@ -70,8 +71,8 @@
     UIButton *saveButton = [[UIButton alloc] init];
     self.saveButton = saveButton;
     [self.view addSubview:saveButton];
-    [saveButton setTitle:_(@"Save") forState:UIControlStateNormal];
-    [saveButton setTitle:_(@"Saved") forState:UIControlStateDisabled];
+    [saveButton setTitle:LocalStr(@"Save") forState:UIControlStateNormal];
+    [saveButton setTitle:LocalStr(@"Saved") forState:UIControlStateDisabled];
     saveButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     saveButton.backgroundColor = rgb(226, 66, 80);
     [saveButton addTarget:self action:@selector(saveButtonTouched) forControlEvents:UIControlEventTouchUpInside];
@@ -79,14 +80,14 @@
     UIButton *cameraButton = [[UIButton alloc] init];
     self.cameraButton = cameraButton;
     [self.view addSubview:cameraButton];
-    [cameraButton setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
+    [cameraButton setImage:[UIImage imageWithName:@"Camera"] forState:UIControlStateNormal];
     cameraButton.backgroundColor = bw(45);
     [cameraButton addTarget:self action:@selector(cameraButtonTouched) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *cameraRollButton = [[UIButton alloc] init];
     self.cameraRollButton = cameraRollButton;
     [self.view addSubview:cameraRollButton];
-    [cameraRollButton setImage:[UIImage imageNamed:@"CameraRoll"] forState:UIControlStateNormal];
+    [cameraRollButton setImage:[UIImage imageWithName:@"CameraRoll"] forState:UIControlStateNormal];
     cameraRollButton.backgroundColor = bw(45);
     [cameraRollButton addTarget:self action:@selector(cameraRollButtonTouched) forControlEvents:UIControlEventTouchUpInside];
 }

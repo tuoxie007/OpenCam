@@ -19,31 +19,31 @@
         UIButton *closeButton = [[UIButton alloc] init];
         self.closeButton = closeButton;
         [self addSubview:closeButton];
-        [closeButton setImage:[UIImage imageNamed:@"Cross"] forState:UIControlStateNormal];
+        [closeButton setImage:[UIImage imageWithName:@"Cross"] forState:UIControlStateNormal];
         [closeButton sizeToFit];
         
         UIButton *applyButton = [[UIButton alloc] init];
         self.applyButton = applyButton;
         [self addSubview:applyButton];
-        [applyButton setImage:[UIImage imageNamed:@"Tick"] forState:UIControlStateNormal];
+        [applyButton setImage:[UIImage imageWithName:@"Tick"] forState:UIControlStateNormal];
         [applyButton sizeToFit];
         
         UIButton *rotateButton = [[UIButton alloc] init];
         self.rotateButton = rotateButton;
         [self addSubview:rotateButton];
-        [rotateButton setImage:[UIImage imageNamed:@"Rotate"] forState:UIControlStateNormal];
+        [rotateButton setImage:[UIImage imageWithName:@"Rotate"] forState:UIControlStateNormal];
         [rotateButton sizeToFit];
         
         UIButton *flipYButton = [[UIButton alloc] init];
         self.flipYButton = flipYButton;
         [self addSubview:flipYButton];
-        [flipYButton setImage:[UIImage imageNamed:@"FlipY"] forState:UIControlStateNormal];
+        [flipYButton setImage:[UIImage imageWithName:@"FlipY"] forState:UIControlStateNormal];
         [flipYButton sizeToFit];
         
         UIButton *flipXButton = [[UIButton alloc] init];
         self.flipXButton = flipXButton;
         [self addSubview:flipXButton];
-        [flipXButton setImage:[UIImage imageNamed:@"FlipX"] forState:UIControlStateNormal];
+        [flipXButton setImage:[UIImage imageWithName:@"FlipX"] forState:UIControlStateNormal];
         [flipXButton sizeToFit];
     }
     return self;

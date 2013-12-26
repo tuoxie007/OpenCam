@@ -8,6 +8,7 @@
 
 #import "OCMPhotoCell.h"
 #import "OCMDefinitions.h"
+#import "UIImage+OCMAdditions.h"
 
 @implementation OCMPhotoCell
 
@@ -28,7 +29,7 @@
         
         UIImageView *tickView = [[UIImageView alloc] init];
         [self.selectionView addSubview:tickView];
-        tickView.image = [UIImage imageNamed:@"CircleTick"];
+        tickView.image = [UIImage imageWithName:@"CircleTick"];
         [tickView sizeToFit];
         tickView.center = selectionView.boundsCenter;
         

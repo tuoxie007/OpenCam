@@ -12,6 +12,7 @@
 #import "OCMSelectPhotoVC.h"
 #import "OCMDefinitions.h"
 #import "OCMCameraViewController.h"
+#import "UIImage+OCMAdditions.h"
 
 @interface OCMCameraVC ()
 
@@ -56,7 +57,7 @@
     self.closeButton = closeButton;
     [self.view addSubview:closeButton];
     [closeButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
-    [closeButton setImage:[UIImage imageNamed:@"Cross"] forState:UIControlStateNormal];
+    [closeButton setImage:[UIImage imageWithName:@"Cross"] forState:UIControlStateNormal];
     [closeButton sizeToFit];
     closeButton.hidden = YES;
     
@@ -64,8 +65,8 @@
     self.toggleFlashButton = toggleFlashButton;
     [self.view addSubview:toggleFlashButton];
     [toggleFlashButton addTarget:self action:@selector(toggleFlash) forControlEvents:UIControlEventTouchUpInside];
-    [toggleFlashButton setImage:[UIImage imageNamed:@"FlashOff"] forState:UIControlStateNormal];
-    [toggleFlashButton setImage:[UIImage imageNamed:@"FlashOn"] forState:UIControlStateSelected];
+    [toggleFlashButton setImage:[UIImage imageWithName:@"FlashOff"] forState:UIControlStateNormal];
+    [toggleFlashButton setImage:[UIImage imageWithName:@"FlashOn"] forState:UIControlStateSelected];
     [toggleFlashButton sizeToFit];
     toggleFlashButton.hidden = YES;
     
@@ -73,28 +74,28 @@
     self.rotateCameraButton = rotateCameraButton;
     [self.view addSubview:rotateCameraButton];
     [rotateCameraButton addTarget:self action:@selector(rotateCamera) forControlEvents:UIControlEventTouchUpInside];
-    [rotateCameraButton setImage:[UIImage imageNamed:@"RotateCamera"] forState:UIControlStateNormal];
+    [rotateCameraButton setImage:[UIImage imageWithName:@"RotateCamera"] forState:UIControlStateNormal];
     [rotateCameraButton sizeToFit];
     rotateCameraButton.hidden = YES;
     
     UIButton *settingsButton = [[UIButton alloc] init];
     self.settingsButton = settingsButton;
     [self.view addSubview:settingsButton];
-    [settingsButton setImage:[UIImage imageNamed:@"Settings"] forState:UIControlStateNormal];
+    [settingsButton setImage:[UIImage imageWithName:@"Settings"] forState:UIControlStateNormal];
     [settingsButton sizeToFit];
     
     UIButton *captureButton = [[UIButton alloc] init];
     self.cameraButton = captureButton;
     [self.view addSubview:captureButton];
     [captureButton addTarget:self action:@selector(capture) forControlEvents:UIControlEventTouchUpInside];
-    [captureButton setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
+    [captureButton setImage:[UIImage imageWithName:@"Camera"] forState:UIControlStateNormal];
     [captureButton sizeToFit];
     
     UIButton *cameraRollButton = [[UIButton alloc] init];
     self.cameraRollButton = cameraRollButton;
     [self.view addSubview:cameraRollButton];
     [cameraRollButton addTarget:self action:@selector(cameraRoll) forControlEvents:UIControlEventTouchUpInside];
-    [cameraRollButton setImage:[UIImage imageNamed:@"CameraRoll"] forState:UIControlStateNormal];
+    [cameraRollButton setImage:[UIImage imageWithName:@"CameraRoll"] forState:UIControlStateNormal];
     [cameraRollButton sizeToFit];
     
     // Setup Camera

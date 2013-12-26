@@ -16,5 +16,6 @@
 - (CGFloat)largerSize; // max of width & height
 - (CGFloat)aspectRatio; // width / height
 - (UIImage *)stretchableImageFromCenter;
++ (UIImage *)imageWithName:(NSString *)imageName;
 
 @end

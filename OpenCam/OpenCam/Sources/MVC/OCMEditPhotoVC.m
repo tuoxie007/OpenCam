@@ -17,6 +17,7 @@
 #import "OCMSharePhotoVC.h"
 #import "OCMDefinitions.h"
 #import "OCMCameraViewController.h"
+#import "UIImage+OCMAdditions.h"
 
 #define CategoryPanelSize (Screen4Inch ? 92 : 55)
 #define TemperatureDefaultValue 5000.0
@@ -74,7 +75,7 @@
     [self.view addSubview:backButton];
     self.backButton = backButton;
     [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [backButton setImage:[UIImage imageNamed:@"ArrowLeft"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageWithName:@"ArrowLeft"] forState:UIControlStateNormal];
     [backButton sizeToFit];
     
     UILabel *titleLabel = [[UILabel alloc] init];
@@ -83,14 +84,14 @@
     titleLabel.font = [UIFont boldSystemFontOfSize:20];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.backgroundColor = [UIColor clearColor];
-    titleLabel.text = _(@"Edit");
+    titleLabel.text = LocalStr(@"Edit");
     [titleLabel sizeToFit];
     
     UIButton *nextButton = [[UIButton alloc] init];
     [self.view addSubview:nextButton];
     self.nextButton = nextButton;
     [nextButton addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
-    [nextButton setImage:[UIImage imageNamed:@"ArrowRight"] forState:UIControlStateNormal];
+    [nextButton setImage:[UIImage imageWithName:@"ArrowRight"] forState:UIControlStateNormal];
     [nextButton sizeToFit];
     
     GPUImageView *preview = [[GPUImageView alloc] init];
@@ -105,7 +106,7 @@
     UIButton *undoButton = [[UIButton alloc] init];
     self.undoButton = undoButton;
     [categoryPanel addSubview:undoButton];
-    [undoButton setImage:[UIImage imageNamed:@"Undo"] forState:UIControlStateNormal];
+    [undoButton setImage:[UIImage imageWithName:@"Undo"] forState:UIControlStateNormal];
     [undoButton sizeToFit];
     undoButton.enabled = NO;
     [undoButton addTarget:self action:@selector(undoButtonTouched) forControlEvents:UIControlEventTouchUpInside];
@@ -113,7 +114,7 @@
     UIButton *colorFilterButtton = [[UIButton alloc] init];
     self.colorFilterButton = colorFilterButtton;
     [categoryPanel addSubview:colorFilterButtton];
-    [colorFilterButtton setImage:[UIImage imageNamed:@"CategoryColor"] forState:UIControlStateNormal];
+    [colorFilterButtton setImage:[UIImage imageWithName:@"CategoryColor"] forState:UIControlStateNormal];
     [colorFilterButtton sizeToFit];
     colorFilterButtton.highlighted = YES;
     [colorFilterButtton addTarget:self action:@selector(colorFilterButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
@@ -121,7 +122,7 @@
     UIButton *wbFilterButton = [[UIButton alloc] init];
     self.wbFilterButton = wbFilterButton;
     [categoryPanel addSubview:wbFilterButton];
-    [wbFilterButton setImage:[UIImage imageNamed:@"CategoryBlackAndWhite"] forState:UIControlStateNormal];
+    [wbFilterButton setImage:[UIImage imageWithName:@"CategoryBlackAndWhite"] forState:UIControlStateNormal];
     [wbFilterButton sizeToFit];
     wbFilterButton.highlighted = YES;
     [wbFilterButton addTarget:self action:@selector(wbFilterButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
@@ -129,7 +130,7 @@
     UIButton *adjustButton = [[UIButton alloc] init];
     self.adjustButton = adjustButton;
     [categoryPanel addSubview:adjustButton];
-    [adjustButton setImage:[UIImage imageNamed:@"Adjust"] forState:UIControlStateNormal];
+    [adjustButton setImage:[UIImage imageWithName:@"Adjust"] forState:UIControlStateNormal];
     [adjustButton sizeToFit];
     adjustButton.highlighted = YES;
     [adjustButton addTarget:self action:@selector(adjustButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
@@ -137,7 +138,7 @@
     UIButton *redoButtton = [[UIButton alloc] init];
     self.redoButton = redoButtton;
     [categoryPanel addSubview:redoButtton];
-    [redoButtton setImage:[UIImage imageNamed:@"Redo"] forState:UIControlStateNormal];
+    [redoButtton setImage:[UIImage imageWithName:@"Redo"] forState:UIControlStateNormal];
     [redoButtton sizeToFit];
     redoButtton.enabled = NO;
     [redoButtton addTarget:self action:@selector(redoButtonTouched) forControlEvents:UIControlEventTouchUpInside];
@@ -179,7 +180,7 @@
     self.inputPicture = picture;
     
     if (self.presentingViewController) {
-        [self.nextButton setImage:[UIImage imageNamed:@"Tick"] forState:UIControlStateNormal];
+        [self.nextButton setImage:[UIImage imageWithName:@"Tick"] forState:UIControlStateNormal];
         [self.nextButton sizeToFit];
     }
     
@@ -644,7 +645,7 @@
     } else if ([type isEqualToString:@"border"]) {
         OCMBorderFilter *filter = [[OCMBorderFilter alloc] init];
         NSString *borderImageName = filterSetting[OCMMetaKeyIconName];
-        filter.borderImage = [UIImage imageNamed:borderImageName];
+        filter.borderImage = [UIImage imageWithName:borderImageName];
         return filter;
     }
     return nil;

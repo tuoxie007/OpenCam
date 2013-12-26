@@ -11,6 +11,7 @@
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < 70000
 #import <QuartzCore/QuartzCore.h>
 #endif
+#import "UIImage+OCMAdditions.h"
 
 @implementation OCMPhotosNavBar
 
@@ -24,7 +25,7 @@
         backButton.layer.cornerRadius = 3;
         backButton.clipsToBounds = YES;
         backButton.backgroundColor = [UIColor colorWithWhite:1 alpha:.1];
-        [backButton setImage:[UIImage imageNamed:@"ArrowLeft"] forState:UIControlStateNormal];
+        [backButton setImage:[UIImage imageWithName:@"ArrowLeft"] forState:UIControlStateNormal];
         [backButton sizeToFit];
         
         UILabel *titleLabel = [[UILabel alloc] init];

@@ -8,6 +8,7 @@
 
 #import "OCMFocusView.h"
 #import "OCMDefinitions.h"
+#import "UIImage+OCMAdditions.h"
 
 @interface OCMFocusView ()
 
@@ -37,7 +38,7 @@
     }
     
     if (!self.crossImage) {
-        self.crossImage = [UIImage imageNamed:@"Focus"];
+        self.crossImage = [UIImage imageWithName:@"Focus"];
     }
     
     CGSize crossImageSize = self.crossImage.size;
