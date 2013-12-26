@@ -19,7 +19,7 @@
     NSString *value = [bundle localizedStringForKey:key value:@"" table:nil];
     return value;
 }
-    
+
 + (OCMCameraViewController *)cameraViewController
 {
     OCMCameraVC *cameraVC = [[OCMCameraVC alloc] init];

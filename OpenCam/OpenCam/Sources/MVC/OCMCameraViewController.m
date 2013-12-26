@@ -14,6 +14,12 @@
 
 @implementation OCMCameraViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [super viewWillAppear:animated];
+}
+    
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;

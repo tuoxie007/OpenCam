@@ -210,11 +210,11 @@
 
 + (UIImage *)imageWithName:(NSString *)imageName
 {
-    UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"OpenCam.bundle/%@", imageName]];
+    UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"OpenCam.bundle/Contents/Resources/%@", imageName]];
     if (img) {
         return img;
     }
-    img = [UIImage imageNamed:[NSString stringWithFormat:@"OpenCam.bundle/icon_%@", imageName]];
+    img = [UIImage imageNamed:[NSString stringWithFormat:@"OpenCam.bundle/Contents/Resources/icon_%@", imageName]];
     if (img) {
         return img;
     }
