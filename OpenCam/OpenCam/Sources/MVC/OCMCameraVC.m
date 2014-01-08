@@ -188,8 +188,17 @@
     }
     self.rotateCameraButton.center = ccp(self.view.width-topHeight/2, self.toggleFlashButton.center.y);
     self.settingsButton.center = ccp(bottomHeight/2, self.view.height-bottomHeight/2);
+    if (self.settingsButton.bottom > self.view.height) {
+        self.settingsButton.bottom = self.view.height;
+    }
+    if (self.settingsButton.left < 0) {
+        self.settingsButton.left = 0;
+    }
     self.cameraButton.center = ccp(self.view.width/2, self.settingsButton.center.y);
     self.cameraRollButton.center = ccp(self.view.width-bottomHeight/2, self.cameraButton.center.y);
+    if (self.cameraRollButton.right > self.view.width) {
+        self.cameraRollButton.right = self.view.width;
+    }
     
     [super viewDidLayoutSubviews];
 }

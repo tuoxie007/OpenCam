@@ -19,7 +19,7 @@
 #import "OCMCameraViewController.h"
 #import "UIImage+OCMAdditions.h"
 
-#define CategoryPanelSize (Screen4Inch ? 92 : 55)
+#define CategoryPanelSize (Screen4Inch ? 92 : (iPad ? 96 : 55))
 #define TemperatureDefaultValue 5000.0
 #define BorderCount 22
 
@@ -153,7 +153,12 @@
 - (void)viewDidLayoutSubviews
 {
     CGFloat topHeight = 64;
-    self.preview.top = Screen4Inch ? topHeight : topHeight - 14;
+    self.preview.top = topHeight;
+    if (!Screen4Inch) {
+        if (!iPad) {
+            self.preview.top -= 14;
+        }
+    }
     self.backButton.center = ccp(topHeight/2, topHeight/2);
     self.titleLabel.center = ccp(self.view.width/2, topHeight/2);
     self.nextButton.center = ccp(self.view.width-topHeight/2, topHeight/2);

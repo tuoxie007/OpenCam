@@ -10,7 +10,7 @@
 #import "OCMDefinitions.h"
 #import "UIImage+OCMAdditions.h"
 
-#define Size (Screen4Inch ? 92 : 55)
+#define Size (Screen4Inch ? 92 : (iPad ? 96 : 55))
 
 @interface OCMFiltersSelectorView ()
 

@@ -28,4 +28,8 @@
 #define Screen4Inch ([[UIScreen mainScreen] bounds].size.height == 568)
 #endif
 
+#ifndef iPad
+#define iPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+#endif
+
 #endif
