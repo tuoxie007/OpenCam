@@ -115,7 +115,11 @@
         self.preview.leftTop = CGPointZero;
         self.previewAreaView.minimumZoomScale = 1;
         self.previewAreaView.maximumZoomScale = MAX(self.sourceImageSize.width, self.sourceImageSize.height) / self.preview.width;
-        self.previewAreaView.zoomScale = self.previewAreaView.width / MIN(self.preview.width, self.preview.height);
+        self.previewAreaView.zoomScale = self.previewAreaView.minimumZoomScale;
+        // set squar
+//        self.previewAreaView.zoomScale = self.previewAreaView.width / MIN(self.preview.width, self.preview.height);
+        self.preview.leftTop = ccp(MAX(self.previewAreaView.width/2-self.preview.width/2, 0),
+                                   MAX(self.previewAreaView.height/2-self.preview.height/2, 0));
     }
     self.sourceImageChanged = NO;
     
