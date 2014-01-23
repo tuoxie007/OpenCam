@@ -223,9 +223,11 @@
     result = [result imageRotatedToUpWithMaxWidth:nav.maxWidth?:result.size.width maxHeight:nav.maxHeight?:result.size.height];
     CGPoint leftTop = ccp(self.previewAreaView.contentOffset.x / self.preview.width * result.size.width,
                           self.previewAreaView.contentOffset.y / self.preview.height * result.size.height);
-    CGSize size = ccs(self.previewAreaView.width / self.preview.width * result.size.width,
-                      self.previewAreaView.width / self.preview.width * result.size.width);
-    CGRect cropRect = ccr(leftTop.x, leftTop.y, size.width, size.height);
+    CGFloat side = self.previewAreaView.width / self.preview.width * result.size.width;
+    if (side < self.previewAreaView.width * [UIScreen mainScreen].scale) {
+        side = self.previewAreaView.width * [UIScreen mainScreen].scale;
+    }
+    CGRect cropRect = ccr(leftTop.x, leftTop.y, side, side);
     UIImage *croppedImage = [result subImageAtRect:cropRect];
     OCMEditPhotoVC *editPhotoVC = [[OCMEditPhotoVC alloc] initWithSourceImage:croppedImage];
     [self.navigationController pushViewController:editPhotoVC animated:YES];

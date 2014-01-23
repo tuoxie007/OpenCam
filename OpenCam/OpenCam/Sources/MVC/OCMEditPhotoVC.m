@@ -25,6 +25,7 @@
 
 @interface OCMEditPhotoVC () <OCMFiltersSelectorViewDelegate, UIScrollViewDelegate>
 
+@property (nonatomic, assign) BOOL filtered;
 @property (nonatomic, strong) UIImage *sourceImage;
 
 @property (nonatomic, weak) UIButton *backButton;
@@ -209,8 +210,10 @@
     UIImage *photo;
     if (filter == self.inputPicture) {
         photo = self.sourceImage;
+        self.filtered = NO;
     } else {
         photo = filter.imageFromCurrentlyProcessedOutput;
+        self.filtered = YES;
     }
     
     if (self.presentingViewController) {
@@ -654,6 +657,11 @@
         return filter;
     }
     return nil;
+}
+
+- (BOOL)photoEdited
+{
+    return self.filtered;
 }
 
 - (BOOL)prefersStatusBarHidden

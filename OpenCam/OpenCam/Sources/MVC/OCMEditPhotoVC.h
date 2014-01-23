@@ -10,6 +10,8 @@
 
 @interface OCMEditPhotoVC : UIViewController
 
+@property (nonatomic, readonly) BOOL photoEdited;
+
 - (instancetype)initWithSourceImage:(UIImage *)sourceImage;
 
 @end

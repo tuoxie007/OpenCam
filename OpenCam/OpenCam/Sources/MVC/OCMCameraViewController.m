@@ -25,4 +25,14 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+- (BOOL)photoEdited
+{
+    for (id viewController in self.viewControllers) {
+        if ([viewController respondsToSelector:@selector(photoEdited)]) {
+            return [viewController photoEdited];
+        }
+    }
+    return NO;
+}
+
 @end

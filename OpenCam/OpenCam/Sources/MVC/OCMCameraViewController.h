@@ -13,6 +13,7 @@
 @interface OCMCameraViewController : UINavigationController
 
 @property (nonatomic, strong) UIImage *photo;
+@property (nonatomic, readonly) BOOL photoEdited;
 @property (nonatomic) CGFloat maxWidth, maxHeight;
 @property (nonatomic, weak) id<OCMCameraViewControllerDelegate, UINavigationControllerDelegate> delegate;
 

@@ -14,10 +14,49 @@
 - (UIImage *)subImageAtRect:(CGRect)rect
 {
     rect = ccr(rect.origin.x*self.scale, rect.origin.y*self.scale, rect.size.width*self.scale, rect.size.height*self.scale);
+    if (rect.size.width >= self.size.width && rect.size.height >= self.size.height) {
+        if (rect.size.width / self.size.width < rect.size.height / self.size.height) {
+            return [self scaleToWidth:rect.size.width force:YES];
+        } else {
+            return [self scaleToHeight:rect.size.height force:YES];
+        }
+    }
     CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
     UIImage* subImage = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
     CGImageRelease(imageRef);
     return subImage;
+}
+
+- (UIImage*)scaleToWidth:(CGFloat)width force:(BOOL)force
+{
+    if (!force && width >= self.size.width) {
+        return self;
+    }
+    CGSize newSize;
+    newSize.width = width;
+    newSize.height = self.size.height/self.size.width*newSize.width;
+    
+    UIGraphicsBeginImageContext(newSize);
+    [self drawInRect:CGRectMake(0, 0, floorf(newSize.width)+1, floorf(newSize.height)+1)];
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;
+}
+
+- (UIImage*)scaleToHeight:(CGFloat)height force:(BOOL)force
+{
+    if (!force && height >= self.size.height) {
+        return self;
+    }
+    CGSize newSize;
+    newSize.height = height;
+    newSize.width = self.size.width/self.size.height*newSize.height;
+    
+    UIGraphicsBeginImageContext(newSize);
+    [self drawInRect:CGRectMake(0, 0, floorf(newSize.width)+1, floorf(newSize.height)+1)];
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;
 }
 
 - (UIImage *)imageRotatedToUp
