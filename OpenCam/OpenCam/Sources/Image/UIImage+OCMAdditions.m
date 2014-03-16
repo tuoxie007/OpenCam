@@ -15,11 +15,7 @@
 {
     rect = ccr(rect.origin.x*self.scale, rect.origin.y*self.scale, rect.size.width*self.scale, rect.size.height*self.scale);
     if (rect.size.width >= self.size.width && rect.size.height >= self.size.height) {
-        if (rect.size.width / self.size.width < rect.size.height / self.size.height) {
-            return [self scaleToWidth:rect.size.width force:YES];
-        } else {
-            return [self scaleToHeight:rect.size.height force:YES];
-        }
+        return self;
     }
     CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
     UIImage* subImage = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
@@ -61,7 +57,8 @@
 
 - (UIImage *)imageRotatedToUp
 {
-    return [self imageRotatedToUpWithMaxWidth:self.size.width maxHeight:self.size.height];
+    CGFloat maxSide = MAX(self.size.width, self.size.height);
+    return [self imageRotatedToUpWithMaxWidth:maxSide maxHeight:maxSide];
 }
 
 - (UIImage *)imageRotatedToUpWithMaxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight
@@ -77,7 +74,12 @@
     
     CGFloat width = CGImageGetWidth(imgRef);
     CGFloat height = CGImageGetHeight(imgRef);
-    
+    if (maxWidth == 0) {
+        maxWidth = width;
+    }
+    if (maxHeight == 0) {
+        maxHeight = height;
+    }
     
     CGAffineTransform transform = CGAffineTransformIdentity;
     CGRect bounds = CGRectMake(0, 0, width, height);
